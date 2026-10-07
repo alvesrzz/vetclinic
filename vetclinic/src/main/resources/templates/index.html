@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VetClinic</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <!-- LOGIN -->
+  <div id="login">
+    <div class="login-page">
+      <div class="login-card">
+      <div class="login-brand">
+        <div class="brand-icon">🐾</div>
+        <div>
+          <span class="brand-eyebrow">Sistema Veterinário</span>
+          <h2>VetClinic</h2>
+        </div>
+      </div>
+
+      <div class="login-copy">
+        <h1>Bem-vindo de volta</h1>
+        <p>Acesse o painel para gerenciar clientes, animais e consultas.</p>
+      </div>
+
+      <div class="form-group">
+        <label for="usuario">Usuário</label>
+        <input type="text" id="usuario" placeholder="Digite seu usuário" autocomplete="username" />
+      </div>
+
+      <div class="form-group">
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" placeholder="Digite sua senha" autocomplete="current-password" />
+      </div>
+
+      <button class="btn-primary login-button" onclick="login()">Entrar no sistema</button>
+      <p id="erro"></p>
+
+      <p class="login-help">Acesso exclusivo para a equipe da clínica.</p>
+    </div>
+
+    <div class="login-visual" aria-hidden="true">
+      <div class="visual-content">
+        <span class="visual-badge">Cuidado em cada atendimento</span>
+        <h3>Organização simples para uma rotina mais tranquila.</h3>
+        <p>Centralize cadastros, agenda e acompanhamento de consultas em um único lugar.</p>
+
+        <div class="visual-stats">
+          <div>
+            <strong>Clientes</strong>
+            <span>Cadastro rápido</span>
+          </div>
+          <div>
+            <strong>Animais</strong>
+            <span>Histórico organizado</span>
+          </div>
+          <div>
+            <strong>Agenda</strong>
+            <span>Consultas em ordem</span>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SISTEMA -->
+  <div id="sistema" class="oculto app-shell">
+
+    <header class="banner">
+      <div class="brand-area">
+        <div class="brand-icon small">🐾</div>
+        <div>
+          <span class="brand-eyebrow">Sistema Veterinário</span>
+          <strong>VetClinic</strong>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <div class="user-chip">
+          <span class="user-avatar">S</span>
+          <div>
+            <strong>Secretaria</strong>
+            <small>Atendimento</small>
+          </div>
+        </div>
+        <button class="btn-logout" onclick="sair()">Sair</button>
+      </div>
+    </header>
+
+    <nav class="main-nav" aria-label="Navegação principal">
+      <button onclick="aba('clientes', this)" class="ativo"><span>👥</span>Clientes</button>
+      <button onclick="aba('animais', this)"><span>🐶</span>Animais</button>
+      <button onclick="aba('consultas', this)"><span>🩺</span>Consultas</button>
+      <button onclick="aba('agenda', this)"><span>📅</span>Agenda</button>
+    </nav>
+
+    <main class="workspace">
+      <div class="page-heading">
+        <div>
+          <span class="section-kicker">Painel de atendimento</span>
+          <h1>Gerenciamento da clínica</h1>
+          <p>Cadastre informações e consulte os registros do sistema.</p>
+        </div>
+        <div class="status-pill"><span></span>Sistema ativo</div>
+      </div>
+
+      <div class="conteudo">
+
+        <!-- ESQUERDA -->
+        <aside class="esquerda">
+
+          <div id="painel-clientes">
+            <section class="form-section">
+              <div class="section-title">
+                <div class="section-icon">+</div>
+                <div>
+                  <h3>Cadastrar cliente</h3>
+                  <p>Adicione um novo responsável.</p>
+                </div>
+              </div>
+              <div class="form-group compact">
+                <label for="cli-nome">Nome</label>
+                <input type="text" id="cli-nome" placeholder="Ex.: Ana Silva" />
+              </div>
+              <div class="form-group compact">
+                <label for="cli-tel">Telefone</label>
+                <input type="text" id="cli-tel" placeholder="Ex.: (19) 99999-9999" />
+              </div>
+              <button class="btn-primary" onclick="cadastrarCliente()">Cadastrar cliente</button>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <section class="form-section">
+              <div class="section-title">
+                <div class="section-icon search">⌕</div>
+                <div>
+                  <h3>Buscar cliente</h3>
+                  <p>Pesquise pelo nome cadastrado.</p>
+                </div>
+              </div>
+              <div class="form-group compact">
+                <label for="busca-cli">Nome do cliente</label>
+                <input type="text" id="busca-cli" placeholder="Digite um nome..." />
+              </div>
+              <button class="btn-secondary" onclick="buscarCliente()">Buscar</button>
+            </section>
+          </div>
+
+          <div id="painel-animais" class="oculto">
+            <section class="form-section">
+              <div class="section-title">
+                <div class="section-icon">+</div>
+                <div>
+                  <h3>Cadastrar animal</h3>
+                  <p>Vincule o animal ao seu responsável.</p>
+                </div>
+              </div>
+              <div class="form-group compact">
+                <label for="ani-nome">Nome do animal</label>
+                <input type="text" id="ani-nome" placeholder="Ex.: Thor" />
+              </div>
+              <div class="form-group compact">
+                <label for="ani-especie">Espécie</label>
+                <input type="text" id="ani-especie" placeholder="Ex.: Cachorro" />
+              </div>
+              <div class="form-group compact">
+                <label for="ani-dono">Responsável</label>
+                <input type="text" id="ani-dono" placeholder="Nome do dono" />
+              </div>
+              <button class="btn-primary" onclick="cadastrarAnimal()">Cadastrar animal</button>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <section class="form-section">
+              <div class="section-title">
+                <div class="section-icon search">⌕</div>
+                <div>
+                  <h3>Animais do cliente</h3>
+                  <p>Consulte os animais por responsável.</p>
+                </div>
+              </div>
+              <div class="form-group compact">
+                <label for="busca-dono">Nome do responsável</label>
+                <input type="text" id="busca-dono" placeholder="Digite um nome..." />
+              </div>
+              <button class="btn-secondary" onclick="verAnimais()">Buscar</button>
+            </section>
+          </div>
+
+          <div id="painel-consultas" class="oculto">
+            <section class="form-section">
+              <div class="section-title">
+                <div class="section-icon">+</div>
+                <div>
+                  <h3>Agendar consulta</h3>
+                  <p>Informe o animal, responsável e horário.</p>
+                </div>
+              </div>
+              <div class="form-group compact">
+                <label for="con-animal">Animal</label>
+                <input type="text" id="con-animal" placeholder="Nome do animal" />
+              </div>
+              <div class="form-group compact">
+                <label for="con-dono">Responsável</label>
+                <input type="text" id="con-dono" placeholder="Nome do dono" />
+              </div>
+              <div class="form-group compact">
+                <label for="con-data">Data e horário</label>
+                <input type="datetime-local" id="con-data" />
+              </div>
+              <button class="btn-primary" onclick="agendarConsulta()">Agendar consulta</button>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <section class="form-section">
+              <div class="section-title">
+                <div class="section-icon search">⌕</div>
+                <div>
+                  <h3>Buscar consulta</h3>
+                  <p>Localize consultas pelo nome do animal.</p>
+                </div>
+              </div>
+              <div class="form-group compact">
+                <label for="busca-con">Animal</label>
+                <input type="text" id="busca-con" placeholder="Digite um nome..." />
+              </div>
+              <button class="btn-secondary" onclick="buscarConsulta()">Buscar</button>
+            </section>
+          </div>
+
+          <div id="painel-agenda" class="oculto">
+            <section class="form-section">
+              <div class="section-title">
+                <div class="section-icon calendar">✓</div>
+                <div>
+                  <h3>Filtrar agenda</h3>
+                  <p>Visualize consultas por situação.</p>
+                </div>
+              </div>
+              <div class="form-group compact">
+                <label for="filtro">Status da consulta</label>
+                <select id="filtro" onchange="filtrarAgenda()">
+                  <option value="">Todos</option>
+                  <option value="agendada">Agendada</option>
+                  <option value="realizada">Realizada</option>
+                  <option value="cancelada">Cancelada</option>
+                </select>
+              </div>
+            </section>
+          </div>
+
+        </aside>
+
+        <!-- DIREITA -->
+        <section class="direita">
+          <div class="results-header">
+            <div>
+              <span class="section-kicker">Resultados</span>
+              <h2>Informações encontradas</h2>
+            </div>
+            <div class="results-icon">⌕</div>
+          </div>
+          <div id="resultado" class="results-body">
+            <div class="empty-state">
+              <div class="empty-icon">🐾</div>
+              <h3>Nenhum resultado exibido</h3>
+              <p>Use o painel ao lado para cadastrar, buscar ou filtrar informações.</p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <footer>VetClinic &copy; 2025 — Gabriel Alves de Carvalho e Marcelo Augusto</footer>
+
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -1,4 +1,8 @@
 package com.fatec.vetclinic.model;
 
-public class StatusConsulta {
+public enum StatusConsulta {
+
+    AGENDADA,
+    REALIZADA,
+    CANCELADA
 }

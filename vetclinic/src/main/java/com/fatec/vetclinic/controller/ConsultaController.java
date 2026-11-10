@@ -28,4 +28,18 @@ public class ConsultaController {
     public void deletar(@PathVariable Long id) {
         service.deletar(id);
     }
+
+    @GetMapping("/{id}")
+    public Consulta buscarPorId(@PathVariable Long id) {
+        return service.buscarPorId(id);
+    }
+
+    @PutMapping("/{id}")
+    public Consulta atualizar(
+            @PathVariable Long id,
+            @RequestBody Consulta consulta) {
+
+        return service.atualizar(id, consulta);
+    }
+
 }

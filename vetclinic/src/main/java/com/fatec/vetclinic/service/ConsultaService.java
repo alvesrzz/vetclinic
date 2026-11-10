@@ -24,4 +24,22 @@ public class ConsultaService {
     public void deletar(Long id) {
         repository.deleteById(id);
     }
+
+    public Consulta buscarPorId(Long id) {
+        return repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Consulta não encontrada"));
+    }
+
+    public Consulta atualizar(Long id, Consulta consulta) {
+
+        Consulta existente = buscarPorId(id);
+
+        existente.setData(consulta.getData());
+        existente.setHorario(consulta.getHorario());
+        existente.setAnimal(consulta.getAnimal());
+        existente.setStatus(consulta.getStatus());
+
+        return repository.save(existente);
+    }
+
 }

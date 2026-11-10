@@ -28,4 +28,18 @@ public class AnimalController {
     public void deletar(@PathVariable Long id) {
         service.deletar(id);
     }
+
+    @GetMapping("/{id}")
+    public Animal buscarPorId(@PathVariable Long id) {
+        return service.buscarPorId(id);
+    }
+
+    @PutMapping("/{id}")
+    public Animal atualizar(
+            @PathVariable Long id,
+            @RequestBody Animal animal) {
+
+        return service.atualizar(id, animal);
+    }
+
 }

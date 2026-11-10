@@ -28,4 +28,18 @@ public class ClienteController {
     public void deletar(@PathVariable Long id) {
         service.deletar(id);
     }
+
+    @GetMapping("/{id}")
+    public Cliente buscarPorId(@PathVariable Long id) {
+        return service.buscarPorId(id);
+    }
+
+    @PutMapping("/{id}")
+    public Cliente atualizar(
+            @PathVariable Long id,
+            @RequestBody Cliente cliente) {
+
+        return service.atualizar(id, cliente);
+    }
+
 }

@@ -1,25 +1,26 @@
 :root {
-  --primary: #207a69;
-  --primary-dark: #145e51;
-  --primary-soft: #e9f6f2;
-  --accent: #f2a65a;
-  --bg: #f5f7f8;
+  --primary: #5f10b5;
+  --primary-dark: #35006f;
+  --primary-soft: #efe6fb;
+  --accent: #c7a4f3;
+  --bg: #f7f3fb;
   --surface: #ffffff;
-  --surface-2: #f8fafb;
-  --text: #1f2d2a;
-  --muted: #6f7f7b;
-  --border: #e2e9e7;
+  --surface-2: #faf8fd;
+  --text: #23143d;
+  --muted: #7d7292;
+  --border: #e8def6;
   --danger: #bf4a4a;
   --danger-soft: #fbeaea;
-  --info: #3f6fae;
-  --info-soft: #e9f0fa;
-  --success: #2f866a;
-  --success-soft: #e7f4ed;
-  --shadow-sm: 0 8px 22px rgba(29, 55, 49, 0.06);
-  --shadow-md: 0 18px 45px rgba(29, 55, 49, 0.11);
+  --info: #6c49b9;
+  --info-soft: #f1ebfc;
+  --success: #5b2ca0;
+  --success-soft: #eee7fa;
+  --shadow-sm: 0 8px 22px rgba(53, 0, 111, 0.06);
+  --shadow-md: 0 18px 45px rgba(53, 0, 111, 0.11);
   --radius: 16px;
   --radius-sm: 11px;
 }
+
 
 * {
   box-sizing: border-box;
@@ -68,7 +69,7 @@ select {
 input:focus,
 select:focus {
   border-color: var(--primary) !important;
-  box-shadow: 0 0 0 4px rgba(32, 122, 105, 0.1);
+  box-shadow: 0 0 0 4px rgba(95, 16, 181, 0.12);
   background: #fff;
 }
 
@@ -81,7 +82,7 @@ select:focus {
   min-height: 100vh;
   display: grid;
   grid-template-columns: minmax(360px, 0.9fr) minmax(520px, 1.1fr);
-  background: #eef4f2;
+  background: #f4effa;
 }
 
 .login-card {
@@ -101,13 +102,13 @@ select:focus {
 }
 
 .brand-icon {
-  width: 52px;
-  height: 52px;
+  width: 58px;
+  height: 58px;
   display: grid;
   place-items: center;
   border-radius: 15px;
-  background: var(--primary);
-  box-shadow: 0 10px 24px rgba(32, 122, 105, 0.2);
+  background: transparent;
+  box-shadow: none;
   font-size: 24px;
 }
 
@@ -116,8 +117,15 @@ select:focus {
   height: 42px;
   border-radius: 12px;
   font-size: 19px;
-  background: rgba(255, 255, 255, 0.14);
+  background: transparent;
   box-shadow: none;
+}
+
+.brand-icon-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 .brand-eyebrow,
@@ -162,7 +170,7 @@ select:focus {
   margin-bottom: 7px;
   font-size: 12px;
   font-weight: 700;
-  color: #42514d;
+  color: #504368;
 }
 
 .form-group input,
@@ -193,24 +201,24 @@ select:focus {
   border: 1px solid var(--primary);
   color: #fff;
   background: var(--primary);
-  box-shadow: 0 8px 18px rgba(32, 122, 105, 0.18);
+  box-shadow: 0 8px 18px rgba(95, 16, 181, 0.18);
 }
 
 .btn-primary:hover {
   background: var(--primary-dark);
   border-color: var(--primary-dark);
-  box-shadow: 0 10px 24px rgba(32, 122, 105, 0.24);
+  box-shadow: 0 10px 24px rgba(95, 16, 181, 0.24);
 }
 
 .btn-secondary {
   color: var(--primary-dark);
   background: var(--primary-soft);
-  border: 1px solid #cfe8e1;
+  border: 1px solid #decdf6;
 }
 
 .btn-secondary:hover {
-  background: #dff1ec;
-  border-color: #b9ddd4;
+  background: #f2e9fd;
+  border-color: #d4bdf3;
 }
 
 .login-button {
@@ -245,7 +253,7 @@ select:focus {
   background:
     radial-gradient(circle at 75% 15%, rgba(255,255,255,0.14) 0 5%, transparent 5.5%),
     radial-gradient(circle at 30% 75%, rgba(255,255,255,0.08) 0 9%, transparent 9.5%),
-    linear-gradient(145deg, #176858 0%, #207a69 48%, #2d8f7d 100%);
+    linear-gradient(145deg, #35006f 0%, #5f10b5 52%, #8a47d9 100%);
 }
 
 .login-visual::before,
@@ -347,8 +355,8 @@ select:focus {
   align-items: center;
   gap: 20px;
   color: #fff;
-  background: #176858;
-  box-shadow: 0 5px 18px rgba(17, 78, 67, 0.16);
+  background: linear-gradient(135deg, #35006f 0%, #5f10b5 100%);
+  box-shadow: 0 5px 18px rgba(53, 0, 111, 0.16);
 }
 
 .brand-area strong {
@@ -395,7 +403,7 @@ select:focus {
   place-items: center;
   border-radius: 50%;
   color: var(--primary-dark);
-  background: #dff0eb;
+  background: #f3ebfe;
   font-size: 12px;
   font-weight: 800;
 }
@@ -430,7 +438,7 @@ select:focus {
   gap: 7px;
   min-height: 54px;
   padding: 0 18px;
-  color: #73817e;
+  color: #7a718f;
   background: transparent;
   border: none;
   font-size: 13px;
@@ -496,7 +504,7 @@ select:focus {
   align-items: center;
   gap: 8px;
   padding: 8px 12px;
-  color: #4f6761;
+  color: #625576;
   background: #fff;
   border: 1px solid var(--border);
   border-radius: 999px;
@@ -510,8 +518,8 @@ select:focus {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #38a57d;
-  box-shadow: 0 0 0 4px rgba(56,165,125,0.12);
+  background: var(--primary);
+  box-shadow: 0 0 0 4px rgba(95,16,181,0.12);
 }
 
 .conteudo {
@@ -678,7 +686,7 @@ select:focus {
   background: #fff;
   border: 1px solid var(--border);
   border-radius: 13px;
-  box-shadow: 0 6px 16px rgba(29, 55, 49, 0.045);
+  box-shadow: 0 6px 16px rgba(53, 0, 111, 0.045);
   overflow: hidden;
 }
 
